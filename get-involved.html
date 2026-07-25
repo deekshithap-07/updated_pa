@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Possibilities Africa</title>
+    <meta name="description" content="Join Possibilities Africa. Open roles across Kenya, Ethiopia and remote positions supporting rural transformation across Africa.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets-embed.js"></script>
+    <style>
+      /* ---- Video cover/thumbnail with play button ---- */
+      .gi-video-card-cover{padding:0;border:2px solid var(--gold-soft);}
+      .gi-video-play{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;margin:0;background:none;cursor:pointer;display:block;}
+      .gi-video-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+      .gi-video-play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;
+        background:rgba(122,26,26,.9);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+        box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .25s ease,background .25s ease;}
+      .gi-video-play-icon i{margin-left:4px;}
+      .gi-video-play:hover .gi-video-play-icon{transform:translate(-50%,-50%) scale(1.08);background:var(--maroon,#7a1a1a);}
+      .gi-video-card-cover iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+      /* ---- Push "Take your seat" copy down so it lines up with the video, not the label above it ---- */
+      .gi-mission-text-shifted{margin-top:2.6em;}
+      @media(max-width:900px){.gi-mission-text-shifted{margin-top:0;}}
+
+      /* ---- Empty careers state, centered ---- */
+      .careers-openings-empty{display:flex;align-items:center;justify-content:center;min-height:120px;}
+      .careers-openings-empty .careers-no-roles{margin-top:0;}
+    </style>
+</head>
+<body>
+
+    <div class="ambient-container">
+        <div class="ambient-glow glow-1"></div>
+        <div class="ambient-glow glow-2"></div>
+        <div class="ambient-glow glow-3"></div>
+    </div>
+
+    <nav class="navbar">
+    <div class="container nav-wrapper">
+        <a href="index.html" class="logo-wrapper header-logo-wrapper">
+    <img src="assets/logo-header.png?v=6" alt="Possibilities Africa" class="logo-img header-logo-img">
+</a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="our-work.html">Our Work</a></li>
+            <li class="nav-item-dropdown">
+                <a href="where-we-work.html" class="nav-dropdown-toggle">Where We Work</a>
+                <button type="button" class="nav-dropdown-caret" aria-label="Show country list" aria-expanded="false"><i class="fa-solid fa-chevron-down"></i></button>
+                <ul class="nav-dropdown-menu">
+                    <li><a href="kenya.html"><img src="https://flagcdn.com/w20/ke.png" alt="">Kenya</a></li>
+                    <li><a href="ethiopia.html"><img src="https://flagcdn.com/w20/et.png" alt="">Ethiopia</a></li>
+                    <li><a href="malawi.html"><img src="https://flagcdn.com/w20/mw.png" alt="">Malawi</a></li>
+                    <li><a href="zambia.html"><img src="https://flagcdn.com/w20/zm.png" alt="">Zambia</a></li>
+                    <li><a href="rwanda.html"><img src="https://flagcdn.com/w20/rw.png" alt="">Rwanda</a></li>
+                    <li><a href="tanzania.html"><img src="https://flagcdn.com/w20/tz.png" alt="">Tanzania</a></li>
+                    <li><a href="burundi.html"><img src="https://flagcdn.com/w20/bi.png" alt="">Burundi</a></li>
+                </ul>
+            </li>
+            <li><a href="get-involved.html" class="active">Get Involved</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="nav-search" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <a href="donate.html" class="btn btn-accent">Donate</a>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+</nav>
+
+    <header class="subpage-hero" style="--hero-img:url('https://africa.possibilitiesafrica.org/wp-content/uploads/2020/07/20170825_162744-1024x576.jpg')">
+        <div class="container">
+            <span class="tagline">Get Involved</span>
+            <h1 class="subpage-hero-title text-gradient animated-heading">Be part of the transformation by supporting PA ministry</h1>
+        </div>
+    </header>
+
+    <section class="gi-mission" id="gi-mission">
+        <div class="container">
+            <div class="gi-mission-row">
+                <div class="gi-mission-quote">
+                    <span class="tagline">Our Call</span>
+                    <h2 class="section-title">Do not ask what Africa can do for you, ask what you can do for Africa.</h2>
+                </div>
+                <div class="gi-mission-photo">
+                    <img src="assets/get-involved-photo.jpg" alt="Possibilities Africa community engagement" loading="lazy">
+                </div>
+            </div>
+            <div class="gi-mission-row gi-mission-row-reverse">
+                <div class="gi-mission-video">
+                    <span class="gi-video-label">Volunteers at PA</span>
+                    <div class="gi-video-card gi-video-card-sm gi-video-card-cover" id="gi-video-card">
+                        <button type="button" class="gi-video-play" id="gi-video-play" aria-label="Play video: Take your seat">
+                            <img src="assets/volunteer-video-cover.png" alt="Possibilities Africa volunteers" class="gi-video-poster" loading="lazy">
+                            <span class="gi-video-play-icon"><i class="fa-solid fa-play"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="gi-mission-text gi-mission-text-shifted">
+                    <h3 class="script-title">Take your seat</h3>
+                    <p>At PA we believe in giving what we have as a way of partnering with God in spreading the Gospel and impacting lives across Africa.</p>
+                    <p>We recognize your passion and dedication to contributing to Africa&rsquo;s transformation. Possibilities Africa (PA) offers various channels to make a meaningful impact by volunteering at PA&rsquo;s community engagements and pastors&rsquo; efforts to transform their community, donating to our different programs, and joining PA as a staff.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="careers-section" id="careers" style="padding-top:2rem">
+        <div class="container">
+            <div class="careers-grid">
+                <div class="careers-content">
+                    <span class="tagline">Careers</span>
+                    <h2 class="section-title">Work with <span class="italic-gold">Possibilities Africa.</span></h2>
+                </div>
+                <div class="careers-openings careers-openings-empty">
+                    <p class="careers-no-roles">No open roles at the moment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gi-contact" id="contact">
+        <div class="container">
+            <div class="section-header" style="margin-bottom:2rem;">
+                <span class="tagline">Contact</span>
+                <h2 class="section-title">Get in <span class="italic-gold">touch.</span></h2>
+            </div>
+            <div class="gi-timeline">
+                <a class="gi-timeline-item" href="mailto:karibu@possibilitiesafrica.org">
+                    <div class="gi-timeline-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="gi-timeline-body">
+                        <div class="gi-contact-label">Email</div>
+                        <div class="gi-contact-value">karibu@possibilitiesafrica.org</div>
+                    </div>
+                </a>
+                <a class="gi-timeline-item" href="tel:+254721238198">
+                    <div class="gi-timeline-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="gi-timeline-body">
+                        <div class="gi-contact-label">Phone</div>
+                        <div class="gi-contact-value">+254 721 238 198</div>
+                    </div>
+                </a>
+                <div class="gi-timeline-item">
+                    <div class="gi-timeline-icon"><i class="fa-solid fa-house"></i></div>
+                    <div class="gi-timeline-body">
+                        <div class="gi-contact-label">Address</div>
+                        <div class="gi-contact-value">P.O. Box: 55604 - 00200<br>Nairobi, Kenya</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ============ Footer ============ -->
+<footer class="footer site-footer">
+    <div class="container footer-grid">
+        <div class="footer-brand">
+            <a href="index.html" class="footer-brand-link" aria-label="Possibilities Africa"><img src="assets/logo-header.png?v=6" alt="Possibilities Africa" class="logo-img footer-logo-img"></a>
+            <h4 class="footer-tagline">With God all things are possible</h4>
+            <p class="footer-mission">The Whole Gospel; Impacting the Whole Person; Transforming the Whole Community</p>
+        </div>
+        <div class="footer-column">
+            <h3>Quick links</h3>
+            <ul class="footer-links">
+                <li><a href="about.html">About PA</a></li>
+                <li><a href="founder.html">The Founder's Message</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Get involved</h3>
+            <ul class="footer-links">
+                <li><a href="donate.html">Donate</a></li>                <li><a href="get-involved.html#contact">Sponsor a Pastor</a></li>                <li><a href="get-involved.html" class="active">Get Involved</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Where we work</h3>
+            <ul class="footer-links footer-links-grid">
+                <li><a href="kenya.html">Kenya</a></li>
+                <li><a href="tanzania.html">Tanzania</a></li>
+                <li><a href="malawi.html">Malawi</a></li>
+                <li><a href="burundi.html">Burundi</a></li>
+                <li><a href="rwanda.html">Rwanda</a></li>
+                <li><a href="zambia.html">Zambia</a></li>
+                <li><a href="ethiopia.html">Ethiopia</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container footer-middle">
+        <div class="footer-about">
+            <p>Possibilities Africa "PA" is a Christian organization that exists to equip pastors in rural African communities with knowledge, skills and change in attitude necessary to live and do holistic transformation ministry.</p>
+            <p class="footer-address"><i class="fa-solid fa-house"></i> The Africa office is Headquartered in Nairobi, Kenya. BTL Centre, Gate 7 Upperhill, Nairobi Masaba road, off Bunyala road</p>
+        </div>
+        <div class="footer-newsletter-wrap">
+            <div class="footer-newsletter-heading">
+                <h3>Sign up for our Newsletter</h3>
+                <a class="newsletter-subscribe-icon" href="index.html#newsletter" aria-label="Subscribe to our newsletter" title="Subscribe to our newsletter"><i class="fa-solid fa-paper-plane"></i></a>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/PossibilitiesAfricaPA" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://x.com/PossibilitiesK" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.53 7.46L22 22h-6.828l-4.77-6.24L4.8 22H2.04l7.02-8.02L2 2h6.914l4.31 5.69L18.244 2Zm-2.39 18h1.66L7.24 4H5.48l10.374 16Z"/></svg></a>
+                <a href="https://www.youtube.com/@possibilitiesafrica5288" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.instagram.com/possibilitiesafrica/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <div class="footer-bottom-links"><a href="#">User &amp; Privacy policy</a><a href="#">Cookie Policy</a></div>
+        <p>&copy; 2026 Possibilities Africa. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal-overlay">
+    <div class="modal-box">
+        <button class="modal-close" aria-label="Close popup"><i class="fa-solid fa-xmark"></i></button>
+        <h3 class="modal-content-title">Story Title</h3>
+        <div class="modal-content-body"></div>
+    </div>
+</div>
+
+
+    <script src="app.js"></script>
+    <script>
+      (function () {
+          /* ---- Load the YouTube video only when the cover is clicked ---- */
+          var playBtn = document.getElementById('gi-video-play');
+          var videoCard = document.getElementById('gi-video-card');
+          if (playBtn && videoCard) {
+              playBtn.addEventListener('click', function () {
+                  var iframe = document.createElement('iframe');
+                  iframe.src = 'https://www.youtube.com/embed/z8nOGZR39jM?rel=0&modestbranding=1&autoplay=1';
+                  iframe.title = 'Possibilities Africa';
+                  iframe.loading = 'lazy';
+                  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                  iframe.allowFullscreen = true;
+                  iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+                  videoCard.innerHTML = '';
+                  videoCard.appendChild(iframe);
+              });
+          }
+      })();
+    </script>
+</body>
+</html>
