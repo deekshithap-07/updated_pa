@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where We Work | Possibilities Africa</title>
+    <meta name="description" content="Explore the East and Central African nations where Possibilities Africa actively partners with rural pastors.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets-embed.js"></script>
+    <style>
+        /* --- Where We Work: stats above, world map below --- */
+        .footprint-header{ text-align:center; max-width:820px; margin:0 auto 2.5rem; }
+        .footprint-header h2{ font-size:2.2rem; margin:.4rem 0 1rem; }
+        .footprint-stat-row{
+            display:grid; grid-template-columns:repeat(3,1fr);
+            gap:1.25rem; max-width:900px; margin:0 auto 1rem;
+        }
+        .footprint-stat-box{
+            background:rgba(255,255,255,.6); backdrop-filter:blur(6px);
+            border:1px solid var(--border); border-radius:18px;
+            padding:1.4rem 1rem; text-align:center;
+            box-shadow:var(--shadow-sm);
+        }
+        .footprint-stat-num{ font-family:'Poppins',sans-serif; font-size:2.4rem; color:var(--maroon,#7a2a12); font-weight:700; line-height:1; }
+        .footprint-stat-label{ margin-top:.4rem; font-weight:600; color:var(--text-muted,#6b6558); font-size:.95rem; letter-spacing:.02em; }
+
+        /* Map (left) + selected-country panel (right) row */
+        .footprint-map-row{
+            display:flex; align-items:center; justify-content:center;
+            gap:2rem; margin-top:2rem;
+        }
+
+        /* World map card (overrides Africa-map card) */
+        .world-map-card{
+            position:relative;
+            width:100%;
+            aspect-ratio: 750 / 780;
+            max-width:600px;
+            flex:1 1 600px;
+            margin:0;
+            background:
+                radial-gradient(ellipse at 50% 40%, #fff8ea 0%, #f6ecd4 70%, #efe1b8 100%);
+            border-radius:24px;
+            border:1px solid var(--border);
+            box-shadow:var(--shadow-md);
+            overflow:hidden;
+            padding:1.5rem;
+        }
+        .world-map-card .world-map-img{
+            position:absolute; inset:1.5rem;
+            width:calc(100% - 3rem); height:calc(100% - 3rem);
+            background:url("assets/africa-countries.svg") center/100% 100% no-repeat;
+            filter: drop-shadow(0 6px 14px rgba(139,90,30,.18));
+        }
+        /* Pins positioned within the inset map area.
+           Percentages computed from lon[-17.625,51.134], lat[-34.82,37.35].
+           The SVG uses preserveAspectRatio=meet so pins are aligned to the
+           centered map by translating from the map's true drawn box. */
+        /* Pins live in .world-map-pins, which is inset exactly like .world-map-img
+           (same 1.5rem inset on every edge). That makes each pin's top/left
+           percentage map onto the actual drawn map area instead of the padded
+           card box, so flags land on the right country. */
+        .world-map-pins{ position:absolute; inset:1.5rem; z-index:3; }
+        .world-map-card .flag-pin{ position:absolute; z-index:3; }
+        .world-map-card .pin-eth{ top:39.0%; left:84.5%; }
+        .world-map-card .pin-ken{ top:51.8%; left:80.8%; }
+        .world-map-card .pin-tza{ top:60.5%; left:76.4%; }
+        .world-map-card .pin-rwa{ top:54.5%; left:69.1%; }
+        .world-map-card .pin-bdi{ top:56.5%; left:69.2%; }
+        .world-map-card .pin-zmb{ top:69.9%; left:66.1%; }
+        .world-map-card .pin-mwi{ top:70.2%; left:75.5%; }
+        .footprint-country-panel{
+            display:flex; gap:1rem; align-items:flex-start;
+            background:rgba(255,255,255,.7); border:1px solid var(--border);
+            border-radius:18px; padding:1.2rem 1.4rem;
+            max-width:420px; flex:1 1 320px; margin:0;
+        }
+        .footprint-country-panel .footprint-country-flag-img{
+            width:56px; height:40px; object-fit:cover; border-radius:6px;
+            box-shadow:0 2px 6px rgba(0,0,0,.15);
+        }
+        .footprint-hint{ text-align:center; color:var(--text-muted,#7a7466); font-size:.9rem; margin-top:1rem; }
+
+        @media (max-width: 900px){
+            .footprint-map-row{ flex-direction:column; }
+            .world-map-card{ max-width:520px; }
+            .footprint-country-panel{ max-width:520px; width:100%; }
+        }
+        @media (max-width: 720px){
+            .footprint-stat-row{ grid-template-columns:1fr; }
+            .footprint-header h2{ font-size:1.6rem; }
+            .world-map-card{ padding:.75rem; border-radius:18px; max-width:360px; }
+            .world-map-card .world-map-img{ inset:0; width:100%; height:100%; }
+            .world-map-pins{ inset:0; }
+            .world-map-card .flag-pin-marker{ transform:scale(.7273,.7241); transform-origin:50% 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-container">
+        <div class="ambient-glow glow-1"></div>
+        <div class="ambient-glow glow-2"></div>
+        <div class="ambient-glow glow-3"></div>
+    </div>
+
+    <nav class="navbar">
+    <div class="container nav-wrapper">
+        <a href="index.html" class="logo-wrapper header-logo-wrapper">
+    <img src="assets/logo-header.png?v=6" alt="Possibilities Africa" class="logo-img header-logo-img">
+</a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="our-work.html">Our Work</a></li>
+            <li class="nav-item-dropdown">
+                <a href="where-we-work.html" class="nav-dropdown-toggle">Where We Work</a>
+                <button type="button" class="nav-dropdown-caret" aria-label="Show country list" aria-expanded="false"><i class="fa-solid fa-chevron-down"></i></button>
+                <ul class="nav-dropdown-menu">
+                    <li><a href="kenya.html"><img src="https://flagcdn.com/w20/ke.png" alt="">Kenya</a></li>
+                    <li><a href="ethiopia.html"><img src="https://flagcdn.com/w20/et.png" alt="">Ethiopia</a></li>
+                    <li><a href="malawi.html"><img src="https://flagcdn.com/w20/mw.png" alt="">Malawi</a></li>
+                    <li><a href="zambia.html"><img src="https://flagcdn.com/w20/zm.png" alt="">Zambia</a></li>
+                    <li><a href="rwanda.html"><img src="https://flagcdn.com/w20/rw.png" alt="">Rwanda</a></li>
+                    <li><a href="tanzania.html"><img src="https://flagcdn.com/w20/tz.png" alt="">Tanzania</a></li>
+                    <li><a href="burundi.html"><img src="https://flagcdn.com/w20/bi.png" alt="">Burundi</a></li>
+                </ul>
+            </li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="nav-search" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <a href="donate.html" class="btn btn-accent">Donate</a>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+</nav>
+
+    <header class="subpage-hero" style="--hero-img:url('https://africa.possibilitiesafrica.org/wp-content/uploads/2021/08/shu-Ethiopia-Lalibela-StGeorge-559224598-1440x823-1-1024x585.jpg')">
+        <div class="container">
+            <span class="tagline">Our Reach</span>
+            <h1 class="subpage-hero-title text-gradient animated-heading">One Mission, Every Village</h1>
+        </div>
+    </header>
+
+    <!-- Organization-wide stats: ABOVE the map -->
+    <section class="footprint-section">
+        <div class="container">
+            <div class="footprint-header">
+                <span class="tagline">Our Current Footprint</span>
+                <h2>Active in seven nations, growing every year.</h2>
+            </div>
+
+            <div class="footprint-stat-row">
+                <div class="footprint-stat-box"><div class="footprint-stat-num">7</div><div class="footprint-stat-label">Countries</div></div>
+                <div class="footprint-stat-box"><div class="footprint-stat-num">1,500+</div><div class="footprint-stat-label">Pastors Trained</div></div>
+                <div class="footprint-stat-box"><div class="footprint-stat-num">80+</div><div class="footprint-stat-label">Communities</div></div>
+            </div>
+
+            <!-- World map (left) + selected-country panel (right) -->
+            <div class="footprint-map-row">
+            <!-- World map with flag pins (same click behavior as before) -->
+            <div class="world-map-card pin-cluster-card">
+                <div class="world-map-img" aria-hidden="true"></div>
+
+                <div class="world-map-pins">
+                    <a href="ethiopia.html" class="flag-pin pin-eth active" data-country="ethiopia" aria-label="Ethiopia">
+                        <span class="flag-pin-marker"><img src="https://flagcdn.com/w80/et.png" alt="Ethiopia flag"></span>
+                    </a>
+                    <a href="kenya.html" class="flag-pin pin-ken" data-country="kenya" aria-label="Kenya">
+                        <span class="flag-pin-marker"><img src="https://flagcdn.com/w80/ke.png" alt="Kenya flag"></span>
+                    </a>
+                    <a href="tanzania.html" class="flag-pin pin-tza" data-country="tanzania" aria-label="Tanzania">
+                        <span class="flag-pin-marker"><img src="https://flagcdn.com/w80/tz.png" alt="Tanzania flag"></span>
+                    </a>
+                    <a href="rwanda.html" class="flag-pin pin-rwa" data-country="rwanda" aria-label="Rwanda">
+                        <span class="flag-pin-marker"><img src="https://flagcdn.com/w80/rw.png" alt="Rwanda flag"></span>
+                    </a>
+                    <a href="burundi.html" class="flag-pin pin-bdi" data-country="burundi" aria-label="Burundi">
+                        <span class="flag-pin-marker"><img src="https://flagcdn.com/w80/bi.png" alt="Burundi flag"></span>
+                    </a>
+                    <a href="zambia.html" class="flag-pin pin-zmb" data-country="zambia" aria-label="Zambia">
+                        <span class="flag-pin-marker"><img src="https://flagcdn.com/w80/zm.png" alt="Zambia flag"></span>
+                    </a>
+                    <a href="malawi.html" class="flag-pin pin-mwi" data-country="malawi" aria-label="Malawi">
+                        <span class="flag-pin-marker"><img src="https://flagcdn.com/w80/mw.png" alt="Malawi flag"></span>
+                    </a>
+                </div>
+
+                <div class="map-floating-popup" id="map-floating-popup">
+                    <button class="popup-close-btn" id="popup-close-btn" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                    <div class="popup-flag-wrap"><img id="footprint-flag-img" src="https://flagcdn.com/w80/et.png" alt="flag"></div>
+                    <div class="popup-body">
+                        <div id="footprint-country-name" class="popup-country-name">Ethiopia</div>
+                        <span class="popup-region-badge">ACTIVE PROGRAM REGION</span>
+                        <a id="footprint-country-link" href="ethiopia.html" class="popup-country-link">View Ethiopia page <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footprint-country-panel">
+                <img id="footprint-flag-img-side" class="footprint-country-flag-img" src="https://flagcdn.com/w80/et.png" alt="Country flag">
+                <div>
+                    <div id="footprint-country-name-side" class="footprint-country-name">Ethiopia</div>
+                    <p id="footprint-country-desc" class="footprint-country-desc">Establishing leadership training modules and agricultural enterprise programs in remote communities.</p>
+                    <a id="footprint-country-link-side" href="ethiopia.html" class="btn btn-outline btn-sm" style="margin-top:.8rem;">Open Ethiopia page <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            </div>
+            <p class="footprint-hint">Tap a flag to preview, or click through to open that country's page.</p>
+        </div>
+    </section>
+
+    <!-- ============ Footer ============ -->
+<footer class="footer site-footer">
+    <div class="container footer-grid">
+        <div class="footer-brand">
+            <a href="index.html" class="footer-brand-link" aria-label="Possibilities Africa"><img src="assets/logo-header.png?v=6" alt="Possibilities Africa" class="logo-img footer-logo-img"></a>
+            <h4 class="footer-tagline">With God all things are possible</h4>
+            <p class="footer-mission">The Whole Gospel; Impacting the Whole Person; Transforming the Whole Community</p>
+        </div>
+        <div class="footer-column">
+            <h3>Quick links</h3>
+            <ul class="footer-links">
+                <li><a href="about.html">About PA</a></li>
+                <li><a href="founder.html">The Founder's Message</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Get involved</h3>
+            <ul class="footer-links">
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="get-involved.html#contact">Sponsor a Pastor</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Where we work</h3>
+            <ul class="footer-links footer-links-grid">
+                <li><a href="kenya.html">Kenya</a></li>
+                <li><a href="tanzania.html">Tanzania</a></li>
+                <li><a href="malawi.html">Malawi</a></li>
+                <li><a href="burundi.html">Burundi</a></li>
+                <li><a href="rwanda.html">Rwanda</a></li>
+                <li><a href="zambia.html">Zambia</a></li>
+                <li><a href="ethiopia.html">Ethiopia</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container footer-middle">
+        <div class="footer-about">
+            <p>Possibilities Africa "PA" is a Christian organization that exists to equip pastors in rural African communities with knowledge, skills and change in attitude necessary to live and do holistic transformation ministry.</p>
+            <p class="footer-address"><i class="fa-solid fa-house"></i> The Africa office is Headquartered in Nairobi, Kenya. BTL Centre, Gate 7 Upperhill, Nairobi Masaba road, off Bunyala road</p>
+        </div>
+        <div class="footer-newsletter-wrap">
+            <div class="footer-newsletter-heading">
+                <h3>Sign up for our Newsletter</h3>
+                <a class="newsletter-subscribe-icon" href="index.html#newsletter" aria-label="Subscribe to our newsletter" title="Subscribe to our newsletter"><i class="fa-solid fa-paper-plane"></i></a>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/PossibilitiesAfricaPA" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://x.com/PossibilitiesK" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.53 7.46L22 22h-6.828l-4.77-6.24L4.8 22H2.04l7.02-8.02L2 2h6.914l4.31 5.69L18.244 2Zm-2.39 18h1.66L7.24 4H5.48l10.374 16Z"/></svg></a>
+                <a href="https://www.youtube.com/@possibilitiesafrica5288" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.instagram.com/possibilitiesafrica/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <div class="footer-bottom-links"><a href="#">User &amp; Privacy policy</a><a href="#">Cookie Policy</a></div>
+        <p>&copy; 2026 Possibilities Africa. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal-overlay">
+    <div class="modal-box">
+        <button class="modal-close" aria-label="Close popup"><i class="fa-solid fa-xmark"></i></button>
+        <h3 class="modal-content-title">Story Title</h3>
+        <div class="modal-content-body"></div>
+    </div>
+</div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
